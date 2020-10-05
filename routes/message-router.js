@@ -13,11 +13,10 @@ const Message = require('../models/message-model')
 const router = express.Router()
 
 router.post('/add', messageCtrl.addMessage)
-router.get('/message', messageCtrl.getMessage)
-//router.delete('/message/:id', messageCtrl.deleteMessage)
+router.get('/', messageCtrl.getMessage)
   
 // Defined delete | remove | destroy route
-router.delete('/message/:id', function(req, res, next) {
+router.delete('/delete/:id', function(req, res, next) {
   Message.findByIdAndRemove(req.params.id, req.body, function (err, message) {
     if (err) return next(err);
     res.json(message);
