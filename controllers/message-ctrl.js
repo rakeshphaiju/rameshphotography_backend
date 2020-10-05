@@ -42,8 +42,9 @@ getMessage = async (req, res) => {
         .status(404)
         .json({ success:false, error: 'Message not found'})
     }
-    return res.status(200).json({ success: true, data: messages})
+    return res.status(200).json({  data: messages })
   }).catch(err => console.log(err))
 }
+
 
 module.exports = {addMessage, getMessage}
